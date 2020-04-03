@@ -14,8 +14,8 @@
     console.log(fullName)
   }
 
-  const handleClick = () => {
-    alert(`Your belt is ${beltColor}!`)
+  const handleClick = (id) => {
+    people = people.filter(p => p.id !== id)
   }
 
   const handleInput = (e) => {
@@ -33,6 +33,7 @@
     <div>
       <h4>{p.name}</h4>
       <p>{p.age} - {p.beltColor}</p>
+      <button on:click={() => handleClick(p.id)}>Delete</button>
     </div>
   {:else}
     <p>No people to show.</p>
