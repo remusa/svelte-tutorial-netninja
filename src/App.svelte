@@ -1,4 +1,6 @@
 <script>
+  import Modal from "./components/Modal.svelte";
+
   let firstName = "Jimmy"
   let lastName = "Hendrix"
   let beltColor = "black"
@@ -21,9 +23,15 @@
   const handleInput = (e) => {
     beltColor = e.target.value
   }
+
+  let num = 25
 </script>
 
+<Modal message={"Sign for the offers!"} isPromo={true}/>
+
 <main>
+  <h1>Svelte belts</h1>
+
   <p>{fullName} - {beltColor} belt</p>
   <input type="text" bind:value={firstName}>
   <input type="text" bind:value={lastName}>
@@ -32,6 +40,9 @@
   {#each people as p (p.id)}
     <div>
       <h4>{p.name}</h4>
+      {#if p.beltColor === "black"}
+        <p><strong>MASTER NINJA</strong></p>
+      {/if}
       <p>{p.age} - {p.beltColor}</p>
       <button on:click={() => handleClick(p.id)}>Delete</button>
     </div>
