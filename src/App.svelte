@@ -9,6 +9,7 @@
     { name: "Mario", beltColor: "orange", age: 35, id: 2},
     { name: "Luigi", beltColor: "brown", age: 45, id: 3},
   ]
+  let showModal = false
 
   $: fullName = `${firstName} ${lastName}`
 
@@ -25,9 +26,11 @@
   }
 
   let num = 25
+
+  const toggleModal = () => showModal = !showModal
 </script>
 
-<Modal message={"Sign for the offers!"} isPromo={true}/>
+<Modal message={"Sign for the offers!"} on:click={toggleModal} {showModal} isPromo={true}/>
 
 <main>
   <h1>Svelte belts</h1>
@@ -36,6 +39,8 @@
   <input type="text" bind:value={firstName}>
   <input type="text" bind:value={lastName}>
   <input type="text" bind:value={beltColor}>
+
+  <button on:click={toggleModal}>Open modal</button>
 
   {#each people as p (p.id)}
     <div>

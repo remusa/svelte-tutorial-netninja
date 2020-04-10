@@ -1,13 +1,12 @@
 <script>
-  let showModal = true
-
+  export let showModal = true
   export let isPromo = false
   export let message = "Default value"
 </script>
 
 {#if showModal}
-  <div class="backdrop">
-    <div class="modal" class:promo={isPromo}>
+  <div class="backdrop" class:promo={isPromo} on:click>
+    <div class="modal">
       <p>{message}</p>
     </div>
   </div>
@@ -28,6 +27,7 @@
     margin: 10% auto;
     text-align: center;
     background: white;
+    color: crimson;
   }
 
   .promo {
