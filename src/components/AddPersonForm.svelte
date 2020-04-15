@@ -20,10 +20,6 @@
   <input type="number" placeholder="age" bind:value={age}/>
 
   <label for="skill">Skills</label>
-  <!-- <input type="checkbox" bind:checked={fighting} />fighting<br>
-  <input type="checkbox" bind:checked= {sneaking} />sneaking<br>
-  <input type="checkbox" bind:checked={running} />running<br> -->
-
   <input type="checkbox" bind:group={skills} value="fighting">fighting<br>
   <input type="checkbox" bind:group={skills} value="sneaking">sneaking<br>
   <input type="checkbox" bind:group={skills} value="running">running<br>
