@@ -14,10 +14,6 @@
 
   $: fullName = `${firstName} ${lastName}`
 
-  $: {
-    console.log(fullName)
-  }
-
   const handleClick = (id) => {
     people = people.filter(p => p.id !== id)
   }
