@@ -2,17 +2,32 @@
   let name
   let beltColor
   let age
+  // let fighting = false
+  // let sneaking = false
+  // let running = false
+  let skills = []
 
   const handleSubmit = (e) => {
-    console.log(name, beltColor, age)
+    console.log(name, beltColor, age, skills)
   }
 </script>
 
 <h3>Add a new person</h3>
+
 <form on:submit|preventDefault={handleSubmit} >
   <input type="text" placeholder="name" bind:value={name} />
   <input type="text" placeholder="belt color" bind:value={beltColor} />
   <input type="number" placeholder="age" bind:value={age}/>
+
+  <label for="skill">Skills</label>
+  <!-- <input type="checkbox" bind:checked={fighting} />fighting<br>
+  <input type="checkbox" bind:checked= {sneaking} />sneaking<br>
+  <input type="checkbox" bind:checked={running} />running<br> -->
+
+  <input type="checkbox" bind:group={skills} value="fighting">fighting<br>
+  <input type="checkbox" bind:group={skills} value="sneaking">sneaking<br>
+  <input type="checkbox" bind:group={skills} value="running">running<br>
+
   <button>Add person</button>
 </form>
 

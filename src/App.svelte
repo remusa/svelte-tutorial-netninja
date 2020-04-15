@@ -1,6 +1,6 @@
 <script>
-  import Modal from "./components/Modal.svelte";
-  import AddPersonForm from "./components/AddPersonForm.svelte";
+  import Modal from "./components/Modal.svelte"
+  import AddPersonForm from "./components/AddPersonForm.svelte"
 
   let firstName = "Jimmy"
   let lastName = "Hendrix"
