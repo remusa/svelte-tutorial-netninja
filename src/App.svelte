@@ -6,9 +6,9 @@
   let lastName = "Hendrix"
   let beltColor = "black"
   let people = [
-    { name: "Yoshi", beltColor: "black", age: 25, id: 1},
-    { name: "Mario", beltColor: "orange", age: 35, id: 2},
-    { name: "Luigi", beltColor: "brown", age: 45, id: 3},
+    { name: "Yoshi", beltColor: "black", age: 25, skills: [], id: 1},
+    { name: "Mario", beltColor: "orange", age: 35, skills: [], id: 2},
+    { name: "Luigi", beltColor: "brown", age: 45, skills: [], id: 3},
   ]
   let showModal = false
 
@@ -25,10 +25,16 @@
   let num = 25
 
   const toggleModal = () => showModal = !showModal
+
+  const addPerson = (e) => {
+    const person = e.detail
+    people = [person, ...people]
+    toggleModal()
+  }
 </script>
 
 <Modal on:click={toggleModal} {showModal} isPromo={true}>
-  <AddPersonForm />
+  <AddPersonForm on:addPerson={addPerson} />
 </Modal>
 
 <main>
@@ -48,6 +54,11 @@
         <p><strong>MASTER NINJA</strong></p>
       {/if}
       <p>{p.age} - {p.beltColor}</p>
+      <ul>
+      {#each p.skills as s}
+        <li>{s}</li>
+      {/each}
+      </ul>
       <button on:click={() => handleClick(p.id)}>Delete</button>
     </div>
   {:else}
